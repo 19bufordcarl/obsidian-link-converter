@@ -278,12 +278,12 @@ const createLink = (dest: LinkType, originalLink: string, altOrBlockRef: string,
         // If alt text is same as the final link or same as file base name, it needs to be empty
         if (altOrBlockRef !== '' && altOrBlockRef !== decodeURI(finalLink)) {
             if (file && decodeURI(altOrBlockRef) === file.basename) {
-                altText = '';
+                altText = '|' + altOrBlockRef;
             } else {
                 altText = '|' + altOrBlockRef;
             }
         } else {
-            altText = '';
+            altText = '|' + altOrBlockRef;
         }
         return `[[${decodeURI(finalLink)}${altText}]]`;
     } else if (dest === 'markdown') {
